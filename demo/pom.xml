@@ -13,6 +13,14 @@
     </description>
 
     <artifactId>demo</artifactId>
-
-
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.znothings</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
+    </dependencies>
 </project>
