@@ -24,9 +24,20 @@
     <groupId>com.znothings</groupId>
     <!-- 构件的标识符，它和group ID一起唯一标识一个构件。换句话说，你不能有两个不同的项目拥有同样的artifact ID和groupID；在某个特定的group ID下，artifact ID也必须是唯一的。构件是项目产生的或使用的一个东西，Maven为项目产生的构件包括：JARs，源 码，二进制发布和WARs等。 -->
     <artifactId>myproject</artifactId>
+    <!--项目产生的构件类型，例如jar、war、ear、pom。插件可以创建他们自己的构件类型，所以前面列的不是全部构件类型 -->
     <packaging>pom</packaging>
-    <!-- 版本号 -->
+    <!--项目当前版本，格式为:主版本.次版本.增量版本-限定版本号 -->
     <version>1.0-SNAPSHOT</version>
+    <!--项目的名称, Maven产生的文档用 -->
+    <name>我的项目</name>
+    <!--项目主页的URL, Maven产生的文档用 -->
+    <url>http://znothings.com</url>
+    <!-- 项目的详细描述, Maven 产生的文档用。
+        当这个元素能够用HTML格式描述时（例如，CDATA中的文本会被解析器忽略，就可以包含HTML标签），不鼓励使用纯文本描述。
+        如果你需要修改产生的web站点的索引页面，你应该修改你自己的索引页文件，而不是调整这里的文档。 -->
+    <description>
+        项目描述
+    </description>
     <modules>
         <module>webapp</module>
         <module>auth</module>
@@ -51,6 +62,11 @@
     </dependencyManagement>
     <!--子模块通用依赖-->
     <dependencies>
+        <!--开发者工具-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
         <!--自动生成通用代码-->
         <dependency>
             <groupId>org.projectlombok</groupId>
