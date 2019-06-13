@@ -1,5 +1,6 @@
 package com.znothings.upload;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,6 +9,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 
@@ -18,6 +21,7 @@ import java.util.List;
  * @version 1.0.0
  */
 @Controller
+@Slf4j
 public class UploadController {
     @GetMapping("/upload")
     public String upload(){
@@ -27,7 +31,20 @@ public class UploadController {
     @PostMapping("upload")
     @ResponseBody
     public String upload(MultipartFile file){
-        return "";
+        if (file.isEmpty()){
+            return "上传失败，请选择文件";
+        }
+        String filename = file.getOriginalFilename();
+        String filepath="/upload/temp/";
+        File dest =new File(filepath+filename);
+        try {
+            file.transferTo(dest);
+            log.info("上传成功");
+            return "上传成功";
+        }catch (IOException e){
+            log.error(e.toString(),e);
+        }
+        return "上传失败";
     }
 
     @GetMapping("/multiUpload")
