@@ -31,5 +31,7 @@ public class User {
     Date birthday;
     @Column
     byte[] photo;
+    @Column
+    String photoUrl;
 
 }

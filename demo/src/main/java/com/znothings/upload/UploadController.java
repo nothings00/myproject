@@ -17,6 +17,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.nio.ByteBuffer;
 import java.sql.Blob;
 import java.time.LocalDate;
 import java.util.Date;
@@ -60,6 +61,11 @@ public class UploadController {
         try {
             file.transferTo(dest.getAbsoluteFile());
             log.info("文件："+filename+"，上传成功到:"+dest.getAbsoluteFile());
+            User user = new User();
+            user.setAge(age);
+            user.setUsername(name);
+            user.setPhotoUrl(dest.getAbsolutePath());
+            userDao.save(user);
             return "上传成功";
         }catch (IOException e){
             log.error(e.toString(),e);
@@ -105,19 +111,45 @@ public class UploadController {
     @ResponseBody
     public void getImage(Integer id, HttpServletResponse response){
         User user = new User();
+        id=id == null ? 4 : id;
         user.setId(id);
         user = userDao.getOne(id);
         response.setContentType("image/jpeg;charset=utf-8");
         response.setHeader("Content-Type","image/jpeg;charset=utf-8");
-        try {
-            ServletOutputStream out = response.getOutputStream();
+        try(ServletOutputStream out = response.getOutputStream()) {
             out.write(user.getPhoto());
             out.flush();
             out.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
+
+    @GetMapping("getImageFile")
+    @ResponseBody
+    public void getImageFromDB(Integer id, HttpServletResponse response){
+        User user = new User();
+        id=id == null ? 6 : id;
+        user.setId(id);
+        user = userDao.getOne(id);
+
+        File file = new File(user.getPhotoUrl());
+        try (ServletOutputStream out = response.getOutputStream();
+             FileInputStream fis = new FileInputStream(file);){
+            if (file.canRead()){
+                byte[] bytes = new byte[1024];
+                int n ;
+                while ((n = fis.read(bytes))!=-1){
+                    out.write(bytes,0,n);
+                }
+            }
+            response.setContentType("image/jpeg;charset=utf-8");
+            response.setHeader("Content-Type","image/jpeg;charset=utf-8");
+            out.flush();
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
