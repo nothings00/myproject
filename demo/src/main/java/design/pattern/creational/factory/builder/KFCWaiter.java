@@ -13,9 +13,8 @@ public class KFCWaiter {
         this.mealBuilder = mealBuilder;
     }
 
-    public Meal constuct(){
+    public void constuct(){
         mealBuilder.buildDrink();
         mealBuilder.buildFood();
-        return mealBuilder.getMeal();
     }
 }
