@@ -9,11 +9,11 @@ package design.pattern.creational.factory.builder;
 public class SubMealBuilderA extends MealBuilder{
     @Override
     public void buildDrink() {
-        getMeal().setDrink("drink - package A drink - apple juice");
+        getMeal().setDrink("apple juice");
     }
 
     @Override
     public void buildFood() {
-        getMeal().setFood("food - package A food - fried chicken");
+        getMeal().setFood("fried chicken");
     }
 }

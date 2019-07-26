@@ -10,14 +10,14 @@ import lombok.ToString;
  */
 @ToString
 public class MealBuilder {
-    private Meal meal;
+    private Meal meal = new Meal();
 
     public void buildDrink(){
-        meal.setDrink("drink - orange juice");
+        meal.setDrink("orange juice");
     }
 
     public void buildFood(){
-        meal.setFood("food - rice");
+        meal.setFood("rice");
     }
 
     public Meal getMeal() {

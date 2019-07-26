@@ -11,14 +11,14 @@ public class BuilderPattern {
         KFCWaiter kfcWaiter  = new KFCWaiter();
         MealBuilder mealBuilder = new MealBuilder();
         kfcWaiter.setMealBuilder(mealBuilder);
-        kfcWaiter.constuct();
-        System.out.println();
+
+        System.out.println(kfcWaiter.constuct());
         mealBuilder = new SubMealBuilderA();
         kfcWaiter.setMealBuilder(mealBuilder);
-        kfcWaiter.constuct();
+        System.out.println(kfcWaiter.constuct());
 
         mealBuilder = new SubMealBuilderB();
         kfcWaiter.setMealBuilder(mealBuilder);
-        kfcWaiter.constuct();
+        System.out.println(kfcWaiter.constuct());
     }
 }
