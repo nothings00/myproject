@@ -1,4 +1,4 @@
-package design.pattern.creational.factory.builder;
+package design.pattern.creational.builder;
 
 import lombok.ToString;
 
