@@ -2,6 +2,7 @@ package design.pattern.behavioral.mediator;
 
 /**
  * 中介者模式
+ * 优点：
  * @author zenghh, 625111833@qq.com
  * @date 2019-08-20 16:27
  * @version 1.0.0
@@ -15,6 +16,7 @@ public class MediatorPattern {
         chatGroup.register(diamondMember);
         commonMember.sendText("hi,i'm zhh");
         diamondMember.sendText("hello,i'm zyc");
+        commonMember.sendText("2","hello");
 
 
     }

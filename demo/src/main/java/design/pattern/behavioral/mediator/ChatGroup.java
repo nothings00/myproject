@@ -1,9 +1,7 @@
 package design.pattern.behavioral.mediator;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * 聊天组
