@@ -1,8 +1,6 @@
 spring:
   thymeleaf:
     cache: false
-  mvc:
-    static-path-pattern: /static/**
   datasource:
     url: jdbc:h2:~/test
     driver-class-name: org.h2.Driver
