@@ -1,7 +1,6 @@
 package design.pattern.creational.builder;
 
 import lombok.Data;
-
 /**
  *
  * @author zenghh, 625111833@qq.com
