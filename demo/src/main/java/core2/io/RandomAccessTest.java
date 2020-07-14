@@ -1,5 +1,7 @@
 package core2.io;
 
+import core2.Employee;
+
 import java.io.*;
 import java.time.LocalDate;
 
