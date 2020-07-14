@@ -97,9 +97,16 @@ public class TextFileTest {
 
 @Data
 class Employee implements Cloneable{
+    public static final int NAME_SIZE = 40;
+    public static final double SALARY_SIZE = 1;
+    public static final int HIRE_DAY_SIZE = 3;
+    public static final int RECORD_SIZE = 100;
+
     private String name;
     private double salary;
     private LocalDate hireDay;
+
+    public Employee(){}
 
     public Employee(String name,double salary){
         this.name = name;
