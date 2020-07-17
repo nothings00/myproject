@@ -1,4 +1,4 @@
-package core2;
+package com.znothings.test.object;
 
 import lombok.Data;
 

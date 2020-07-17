@@ -1,7 +1,7 @@
 package core2.io;
 
-import core2.Employee;
-import core2.Manager;
+import com.znothings.test.object.Employee;
+import com.znothings.test.object.Manager;
 
 import java.io.*;
 
