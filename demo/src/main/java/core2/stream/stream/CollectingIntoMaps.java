@@ -1,4 +1,4 @@
-package core2.javaSe8.stream;
+package core2.stream.stream;
 
 import java.util.*;
 import java.util.function.Function;

@@ -1,10 +1,9 @@
-package core2.javaSe8.stream;
+package core2.stream.stream;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

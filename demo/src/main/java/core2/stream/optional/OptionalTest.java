@@ -1,4 +1,4 @@
-package core2.javaSe8.optional;
+package core2.stream.optional;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

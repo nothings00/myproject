@@ -1,6 +1,5 @@
-package core2.javaSe8.stream;
+package core2.stream.stream;
 
-import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
