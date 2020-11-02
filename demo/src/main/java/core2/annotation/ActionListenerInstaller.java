@@ -36,16 +36,16 @@ public class ActionListenerInstaller {
      * @param source 被添加对象
      * @param param 被添加方法入参
      * @param m 被添加方法
-     * @throws NoSuchMethodException
-     * @throws InvocationTargetException
-     * @throws IllegalAccessException
+     * @throws NoSuchMethodException 未找到方法
+     * @throws InvocationTargetException 调用目标错误
+     * @throws IllegalAccessException 无法接入
      */
     public static void addListener(Object source,final Object param,final Method m)
             throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         //修改被调用方法入参为param
         InvocationHandler handler = (proxy, method, args) -> m.invoke(param);
         //1.创建ActionListener代理类
-        Object listener = Proxy.newProxyInstance(null,new Class[]{java.awt.event.ActionListener.class},handler);
+        ActionListener listener = (ActionListener) Proxy.newProxyInstance(null,new Class[]{ActionListener.class},handler);
         //2.找到被添加对象的添加listen方法
         Method adder = source.getClass().getMethod("addActionListener", ActionListener.class);
         //3.被添加对象调用添加listen方法
