@@ -1,6 +1,7 @@
 package core2.international.retire;
 
 import com.fasterxml.jackson.databind.util.ClassUtil;
+import core2.international.retire.Retire.GBC;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,6 +25,35 @@ public class Retire {
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setVisible(true);
         });
+    }
+    public static class GBC extends GridBagConstraints{
+
+        public GBC(int gridx, int gridy) {
+            this.gridx = gridx;
+            this.gridy = gridy;
+        }
+        public GBC(int gridx, int gridy, int gridwidth, int gridheight) {
+            this.gridx = gridx;
+            this.gridy = gridy;
+            this.gridwidth = gridwidth;
+            this.gridheight = gridheight;
+        }
+
+        public GBC setAnchor(int position){
+            this.anchor = position;
+            return this;
+        }
+
+        public GBC setFill(int fill){
+            this.fill = fill;
+            return this;
+        }
+
+        public GBC setWeight(double weightX,double weightY){
+            this.weightx = weightX;
+            this.weighty = weightY;
+            return this;
+        }
     }
 }
 
@@ -403,32 +433,3 @@ class RetireComponent extends JComponent{
     }
 }
 
-class GBC extends GridBagConstraints{
-
-    public GBC(int gridx, int gridy) {
-        this.gridx = gridx;
-        this.gridy = gridy;
-    }
-    public GBC(int gridx, int gridy, int gridwidth, int gridheight) {
-        this.gridx = gridx;
-        this.gridy = gridy;
-        this.gridwidth = gridwidth;
-        this.gridheight = gridheight;
-    }
-
-    public GBC setAnchor(int position){
-        this.anchor = position;
-        return this;
-    }
-
-    public GBC setFill(int fill){
-        this.fill = fill;
-        return this;
-    }
-
-    public GBC setWeight(double weightX,double weightY){
-        this.weightx = weightX;
-        this.weighty = weightY;
-        return this;
-    }
-}
