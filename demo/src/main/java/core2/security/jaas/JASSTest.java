@@ -1,4 +1,8 @@
 package core2.security.jaas;
+
+import javax.swing.*;
+import java.awt.*;
+
 /**
  *
  * @author zenghh
@@ -6,8 +10,14 @@ package core2.security.jaas;
  * @version 1.0
  */
 public class JASSTest {
-    //TODO: 需要分别在两个jar包开发登录和操作模块
+    //demo 是login模块，test是action模块
     public static void main(String[] args) {
-
+        System.setSecurityManager(new SecurityManager());
+        EventQueue.invokeLater(()->{
+//            JFrame frame = new JASSFrame();
+//            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//            frame.setTitle("JAASTtest");
+//            frame.setVisible(true);
+        });
     }
 }
