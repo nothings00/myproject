@@ -46,6 +46,7 @@
         <module>demo</module>
         <module>interview</module>
         <module>ntool</module>
+        <module>test</module>
     </modules>
 
     <properties>
